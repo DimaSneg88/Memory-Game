@@ -1,0 +1,204 @@
+:root {
+  --color1: #a09ebb;
+  --color2: #a8aec1;
+  --color3: #b5d2cb;
+  --color4: #bfffbc;
+  --color5: #a6ffa1;
+  --shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  --transform: all 0.3s ease 0s;
+}
+
+body {
+  background-color: var(--color1);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+img {
+  max-width: 45px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+}
+
+.level {
+  width: 300px;
+  padding: 20px;
+  border-radius: 40px;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  font-weight: 800;
+  background-color: var(--color2);
+}
+
+.container {
+  width: 300px;
+  height: 200px;
+  background-color: var(--color3);
+  padding: 25px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.level-2 {
+  height: 400px;
+}
+
+.level-2 .card {
+  height: calc(100% / 4 - 10px);
+}
+
+.level-3 {
+  width: 600px;
+  height: 300px;
+}
+
+.level-3 .card {
+  height: calc(100% / 3 - 10px);
+  width: calc(100% / 6 - 10px);
+}
+
+.level-4 {
+  height: 400px;
+}
+
+.level-4 .card {
+  height: calc(100% / 4 - 10px);
+}
+
+.card {
+  width: calc(100% / 3 - 10px);
+  height: calc(100% / 2 - 10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+
+.view {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: var(--shadow);
+  border-radius: 7px;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.25s linear 0s;
+}
+
+.front-view {
+  font-size: 40px;
+  color: var(--color5);
+}
+
+.back-view {
+  transform: rotateY(-180deg);
+}
+
+.flip .front-view {
+  transform: rotateY(180deg);
+}
+
+.flip .back-view {
+  transform: rotateY(0);
+}
+
+.shake {
+  animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-13px);
+  }
+  40% {
+    transform: translateX(13px);
+  }
+  60% {
+    transform: translateX(-8px);
+  }
+  80% {
+    transform: translateX(8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.308);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  visibility: hidden;
+}
+
+.modal__container {
+  background-color: white;
+  padding: 10px;
+  padding-top: 40px;
+  width: 400px;
+  border-radius: 20px;
+  color: black;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+
+.modal-active {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.4s ease 2s;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.play__button {
+  width: 300px;
+  padding: 20px;
+  border-radius: 40px;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  font-weight: 800;
+  background-color: var(--color2);
+  margin-bottom: 20px;
+}
